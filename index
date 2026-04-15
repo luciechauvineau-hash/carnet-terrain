@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion Séjour 2026</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; }
-        input { padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
-        button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    </style>
-</head>
-<body>
-    <h1>Projet Été 2026</h1>
-    <p>Veuillez entrer le nom de votre séjour :</p>
-    
-    <input type="text" id="nomSejour" placeholder="Ex: CORSE-SUD">
-    <button onclick="seConnecter()">Lancer l'aventure</button>
-
-    <script>
-        function seConnecter() {
-            const nom = document.getElementById('nomSejour').value;
-            if (nom.trim() !== "") {
-                // 1. On garde le nom en mémoire
-                localStorage.setItem('session_sejour', nom);
-                // 2. On va vers ta page d'activités (on suppose qu'elle s'appelle activites.html)
-                window.location.href = "activites.html"; 
-            } else {
-                alert("Merci d'entrer un nom de séjour valide.");
-            }
-        }
-    </script>
-</body>
-</html>
+<script>
+    function seConnecter() {
+        const nom = document.getElementById('nomSejour').value;
+        localStorage.setItem('session_sejour', nom); // On enregistre
+        window.location.href = "activites.html";    // On change de page
+    }
+</script>
