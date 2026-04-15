@@ -56,10 +56,7 @@
   .bottom-nav button.active { color: var(--green-mid); }
   .bottom-nav button svg { width: 20px; height: 20px; }
 
-  /* STYLE DES ÉTAPES BLOQUÉES DANS LA NAV */
-  .nav-locked { opacity: 0.3; grayscale: 1; pointer-events: none; }
-
-  /* RESTE DU STYLE (TAGS, BUTTONS, etc.) */
+  /* TEMPS HEADER */
   .temps-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border-radius: 20px; font-size: 12px; font-weight: 500; margin-bottom: 16px; }
   .t1 .temps-badge { background: var(--green-pale); color: var(--green-mid); }
   .t2 .temps-badge { background: var(--blue-pale); color: var(--blue-mid); }
@@ -71,6 +68,7 @@
   .temps-title-big { font-family: var(--serif); font-size: 26px; font-weight: 300; line-height: 1.2; margin-bottom: 4px; }
   .temps-sub { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
 
+  /* FORM ELEMENTS */
   .field { margin-bottom: 18px; }
   .field label { font-size: 12px; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 6px; }
   select, input[type="text"], textarea {
@@ -80,40 +78,80 @@
     font-family: var(--sans); appearance: none; -webkit-appearance: none;
     transition: border-color 0.2s;
   }
+  select:focus, input:focus, textarea:focus { outline: none; border-color: var(--green-light); }
   textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234a6258' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
 
+  /* TAGS */
   .tags { display: flex; flex-wrap: wrap; gap: 7px; }
   .tag { padding: 7px 13px; border-radius: 20px; font-size: 13px; cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--text-secondary); transition: all 0.15s; user-select: none; }
   .tag.sel-green { background: var(--green-pale); border-color: var(--green-light); color: var(--green-mid); font-weight: 500; }
   .tag.sel-blue { background: var(--blue-pale); border-color: #5a80b0; color: var(--blue-mid); font-weight: 500; }
   .tag.sel-amber { background: var(--amber-pale); border-color: #c07830; color: var(--amber-mid); font-weight: 500; }
 
+  /* RESTITUTION CARDS */
   .restitution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .rest-card { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 10px; cursor: pointer; text-align: center; font-size: 13px; color: var(--text-secondary); background: var(--bg); transition: all 0.15s; user-select: none; }
+  .rest-card .rest-icon { font-size: 22px; margin-bottom: 5px; }
   .rest-card.sel { border-color: #c07830; background: var(--amber-pale); color: var(--amber-mid); font-weight: 500; }
 
+  /* BUTTONS */
   .btn { width: 100%; padding: 14px; border-radius: var(--radius-sm); font-size: 15px; font-weight: 500; font-family: var(--sans); cursor: pointer; border: none; transition: all 0.15s; margin-top: 8px; }
+  .btn:active { transform: scale(0.98); }
   .btn-green { background: var(--green-mid); color: white; }
+  .btn-green:hover { background: var(--green-dark); }
   .btn-blue { background: var(--blue-mid); color: white; }
   .btn-amber { background: var(--amber-mid); color: white; }
   .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-primary); }
+  .btn-outline:hover { background: var(--bg); }
 
+  /* SUCCESS */
   .toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--green-dark); color: white; padding: 12px 24px; border-radius: 20px; font-size: 14px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 100; white-space: nowrap; }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+  /* JOURNAL */
   .fiche-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px; background: var(--surface); }
   .fiche-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
   .fiche-sejour { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 10px; background: var(--green-pale); color: var(--green-mid); }
   .fiche-date { font-size: 12px; color: var(--text-hint); }
+  .fiche-section { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-hint); margin: 10px 0 4px; }
   .fiche-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+  .fiche-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .mini-badge { font-size: 11px; padding: 2px 8px; border-radius: 8px; }
+  .mb-blue { background: var(--blue-pale); color: var(--blue-mid); }
+  .mb-amber { background: var(--amber-pale); color: var(--amber-mid); }
+  .mb-green { background: var(--green-pale); color: var(--green-mid); }
+
+  /* STATS */
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .stat-box { background: var(--green-pale); border-radius: var(--radius-sm); padding: 12px; text-align: center; }
+  .stat-num { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--green-dark); line-height: 1; }
+  .stat-lbl { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+  /* EMPTY STATE */
+  .empty { text-align: center; padding: 40px 20px; color: var(--text-hint); }
+  .empty-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty p { font-size: 14px; line-height: 1.6; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+  /* INSTALL BANNER */
+  .install-banner { background: var(--green-dark); color: #e8f5ec; border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 20px; font-size: 13px; line-height: 1.6; display: none; }
+  .install-banner strong { display: block; margin-bottom: 4px; font-size: 14px; }
+  .install-banner.show { display: block; }
+
+  /* EXPORT */
+  .export-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; font-size: 12px; font-family: monospace; line-height: 1.6; color: var(--text-secondary); white-space: pre-wrap; max-height: 200px; overflow-y: auto; margin-top: 12px; }
 </style>
 </head>
 <body>
 
 <script>
-  // VERROU DE SÉCURITÉ : On vérifie si l'utilisateur est identifié
+  // VERROU : On vérifie immédiatement si le nom du séjour est en mémoire
   const sessionSejour = localStorage.getItem('session_sejour');
   if (!sessionSejour) {
+      // Si pas de nom, on retourne à l'index pour s'identifier
       window.location.href = "index.html";
   }
 </script>
@@ -124,7 +162,7 @@
     <div class="header-top">
       <div>
         <div class="header-title">Carnet de terrain</div>
-        <div class="header-sejour">Séjour : <strong id="nomDuSejourAffiche" style="color:white">...</strong></div>
+        <div class="header-sejour" id="header-sejour-nom">Chargement...</div>
       </div>
     </div>
     <div class="progress-bar" id="progress-bar">
@@ -143,174 +181,68 @@
 
       <div class="field">
         <label>Milieu observé</label>
-        <select id="obs-sejour">
+        <select id="obs-sejour" onchange="updateHeaderLocal()">
           <option value="">— Choisir le milieu —</option>
           <option>Montagne</option>
           <option>Mer</option>
           <option>Forêt</option>
           <option>Plaine</option>
           <option>Rivière</option>
-          <option>Marais</option>
+          <option>Marais / zone humide</option>
+          <option>Autre</option>
         </select>
       </div>
-
       <div class="field">
         <label>Lieu précis</label>
-        <input type="text" id="obs-lieu" placeholder="ex : sentier du lac...">
+        <input type="text" id="obs-lieu" placeholder="ex : sentier du lac, plage nord, lisière...">
       </div>
-
       <div class="field">
         <label>Ce que j'observe</label>
         <div class="tags" id="obs-tags">
           <span class="tag" onclick="toggleTag(this,'sel-green')">Flore</span>
           <span class="tag" onclick="toggleTag(this,'sel-green')">Faune</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Sol / roche</span>
           <span class="tag" onclick="toggleTag(this,'sel-green')">Eau</span>
-          <span class="tag" onclick="toggleTag(this,'sel-green')">Traces</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Météo / lumière</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Traces d'animaux</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Impact humain</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Déchets / pollution</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Sons / silence</span>
+          <span class="tag" onclick="toggleTag(this,'sel-green')">Odeurs</span>
         </div>
       </div>
-
       <div class="field">
         <label>Notes libres</label>
-        <textarea id="obs-notes" placeholder="Décris tes observations..."></textarea>
+        <textarea id="obs-notes" placeholder="Décris ce que tu vois, entends, ressens..."></textarea>
       </div>
-
-      <button class="btn btn-green" onclick="validerEtapeSpecifique(1)">Valider l'observation →</button>
+      <button class="btn btn-green" onclick="validerEtAller('comprendre', 1)">Continuer → Comprendre</button>
     </div>
 
     <div id="screen-comprendre" class="screen t2">
       <span class="temps-badge"><span class="temps-num">2</span> Comprendre</span>
       <div class="temps-title-big">Ce que j'en<br><em>retiens</em></div>
-      
+      <div class="temps-sub">Ressentis et prises de conscience du groupe</div>
+
       <div class="field">
         <label>Ce que j'ai ressenti</label>
-        <div class="tags">
+        <div class="tags" id="comp-ressentis">
           <span class="tag" onclick="toggleTag(this,'sel-blue')">Calme</span>
-          <span class="tag" onclick="toggleTag(this,'sel-blue')">Curieux</span>
+          <span class="tag" onclick="toggleTag(this,'sel-blue')">Émerveillé·e</span>
+          <span class="tag" onclick="toggleTag(this,'sel-blue')">Curieux·se</span>
+          <span class="tag" onclick="toggleTag(this,'sel-blue')">Inquiet·e</span>
+          <span class="tag" onclick="toggleTag(this,'sel-blue')">Triste</span>
+          <span class="tag" onclick="toggleTag(this,'sel-blue')">Inspiré·e</span>
         </div>
       </div>
-
       <div class="field">
-        <label>Note de compréhension</label>
-        <textarea id="comp-compris" placeholder="Qu'as-tu appris ?"></textarea>
+        <label>Ce que j'ai aimé</label>
+        <textarea id="comp-aime" placeholder="Qu'est-ce qui m'a touché ?"></textarea>
       </div>
-
-      <button class="btn btn-blue" onclick="validerEtapeSpecifique(2)">Valider la compréhension →</button>
-      <button class="btn btn-outline" onclick="goTo('observer')" style="margin-top:8px">← Retour</button>
-    </div>
-
-    <div id="screen-agir" class="screen t3">
-      <span class="temps-badge"><span class="temps-num">3</span> Agir</span>
-      <div class="temps-title-big">Restitution</div>
-      
       <div class="field">
-        <label>Idée pour ma ville</label>
-        <textarea id="agir-ville" placeholder="Une action concrète ?"></textarea>
+        <label>Ce que je n'ai pas aimé</label>
+        <textarea id="comp-pasaime" placeholder="Ce qui m'a dérangé..."></textarea>
       </div>
-
-      <button class="btn btn-amber" onclick="saveAll()">Enregistrer la fiche finale</button>
-      <button class="btn btn-outline" onclick="goTo('comprendre')" style="margin-top:8px">← Retour</button>
-    </div>
-
-    <div id="screen-journal" class="screen">
-        <div id="journal-content"></div>
-        <button class="btn btn-outline" onclick="exportData()">Exporter le carnet</button>
-    </div>
-
-    <div id="screen-infos" class="screen">
-        <button class="btn btn-outline" onclick="localStorage.clear(); location.href='index.html';" style="color:red">Déconnexion (Changer de séjour)</button>
-    </div>
-
-  </div>
-
-  <nav class="bottom-nav">
-    <button class="active" id="nav-obs" onclick="goTo('observer')">Observer</button>
-    <button id="nav-comp" class="nav-locked" onclick="goTo('comprendre')">Comprendre</button>
-    <button id="nav-agir" class="nav-locked" onclick="goTo('agir')">Agir</button>
-    <button onclick="goTo('journal')">Journal</button>
-    <button onclick="goTo('infos')">Infos</button>
-  </nav>
-
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-// --- LOGIQUE DE NAVIGATION ET DE BLOCAGE ---
-
-// On affiche le nom du séjour récupéré à l'accueil
-document.getElementById('nomDuSejourAffiche').innerText = sessionSejour;
-
-function goTo(name){
-  // On récupère la progression débloquée pour ce séjour
-  const progression = parseInt(localStorage.getItem('progression_' + sessionSejour) || "0");
-
-  // Sécurité de navigation
-  if (name === 'comprendre' && progression < 1) {
-    showToast("🔒 Complétez l'étape 1 d'abord");
-    return;
-  }
-  if (name === 'agir' && progression < 2) {
-    showToast("🔒 Complétez l'étape 2 d'abord");
-    return;
-  }
-
-  // Changement d'écran
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-'+name).classList.add('active');
-  
-  // Update des boutons de la barre du bas
-  document.querySelectorAll('.bottom-nav button').forEach(b => b.classList.remove('active'));
-  updateProgress(name);
-  rafraichirCadenas();
-}
-
-function validerEtapeSpecifique(niveau) {
-  localStorage.setItem('progression_' + sessionSejour, niveau);
-  showToast("✅ Étape " + niveau + " validée !");
-  if(niveau === 1) goTo('comprendre');
-  if(niveau === 2) goTo('agir');
-}
-
-function rafraichirCadenas() {
-  const progression = parseInt(localStorage.getItem('progression_' + sessionSejour) || "0");
-  if (progression >= 1) document.getElementById('nav-comp').classList.remove('nav-locked');
-  if (progression >= 2) document.getElementById('nav-agir').classList.remove('nav-locked');
-}
-
-// --- FONCTIONS EXISTANTES ADAPTÉES ---
-
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
-function toggleTag(el, selClass){
-  el.classList.toggle(selClass);
-}
-
-function updateProgress(name){
-  const steps = ['ps1','ps2','ps3'];
-  const activeMap = { observer: 0, comprendre: 1, agir: 2 };
-  steps.forEach((id, i) => {
-    const el = document.getElementById(id);
-    el.className = 'progress-step';
-    if(i < activeMap[name]) el.classList.add('done');
-    if(i === activeMap[name]) el.classList.add('active');
-  });
-}
-
-function saveAll(){
-    showToast("Fiche enregistrée avec succès !");
-    localStorage.setItem('progression_' + sessionSejour, 3); // Débloque tout
-    goTo('journal');
-}
-
-// Lancement initial
-rafraichirCadenas();
-updateProgress('observer');
-
-</script>
-</body>
-</html>
+      <div class="field">
+        <label>Ce que j'ai compris sur ce milieu</label>
+        <textarea id="comp-compris" placeholder="Un lien, une logique..."></textarea>
+      </div>
