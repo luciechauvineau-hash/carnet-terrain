@@ -1,7 +1,0 @@
-<script>
-    function seConnecter() {
-        const nom = document.getElementById('nomSejour').value;
-        localStorage.setItem('session_sejour', nom); // On enregistre
-        window.location.href = "activites.html";    // On change de page
-    }
-</script>
